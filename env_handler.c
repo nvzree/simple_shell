@@ -48,7 +48,7 @@ int check_env(int n, char **argv, char **tokens, int *exit_stat)
 	}
 	if (strcmp(tokens[0], "unsetenv") == 0)
 	{
-		unsetenv(tokens[1]);
+		_unsetenv(tokens[1]);
 		return (2);
 	}
 	return (0);
@@ -65,7 +65,7 @@ int check_env(int n, char **argv, char **tokens, int *exit_stat)
 
 int _exe(char **argv, char **tokens, char **command, int *exit_stat)
 {
-	char *path = getenv("PATH");
+	char *path = _getenv("PATH");
 
 	if (access(tokens[0], X_OK) == -1)
 	{

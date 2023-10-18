@@ -12,7 +12,6 @@ int main(int argc __attribute__((unused)), char **argv)
 	char *cmd_sh = NULL;
 	size_t len = 0;
 	char *tokens[buffer];
-	const char *delim = " \t\n";
 	int n, response;
 	char *command;
 	int exit_stat = 0;
@@ -24,12 +23,12 @@ int main(int argc __attribute__((unused)), char **argv)
 			break;
 
 		n = 0;
-		tokens[n] = strtok(cmd_sh, delim);
+		tokens[n] = strtok(cmd_sh, " \n");
 
 		while (tokens[n] != NULL)
 		{
 			n++;
-			tokens[n] = strtok(NULL, delim);
+			tokens[n] = strtok(NULL, " \n");
 		}
 
 		tokens[n] = NULL;

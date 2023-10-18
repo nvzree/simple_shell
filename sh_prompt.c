@@ -11,7 +11,6 @@ int prompt_handler(size_t *len, char **cmd_sh)
 {
 	ssize_t cmd_count;
 	int interactive_sh = isatty(STDIN_FILENO);
-	cmd_sh = NULL;
 
 	if (interactive_sh)
 	{
