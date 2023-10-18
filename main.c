@@ -41,11 +41,11 @@ int main(int argc __attribute__((unused)), char **argv)
 		else if (response == 2)
 			continue;
 
-	/*	response = _exe(argv, tokens, &command, &exit_stat);
+		response = _exe(argv, tokens, &command, &exit_stat);
 		if (response == 1)
 			break;
 		else if (response == 2)
-			continue; */
+			continue;
 
 		response = execute_cmd(command, tokens, &exit_stat);
 		if (response == 1)

@@ -62,18 +62,19 @@ int check_env(int n, char **argv, char **tokens, int *exit_stat)
  * @exit_stat: exit status
  * Return: int
  */
- /*int _exe(char **argv, char **tokens, char **command, int *exit_stat)
+
+int _exe(char **argv, char **tokens, char **command, int *exit_stat)
 {
 	char *path = getenv("PATH");
 
 	if (access(tokens[0], X_OK) == -1)
 	{
-		*command = which(tokens[0], path);
+		*command = which_path(tokens[0], path);
 		if (access(*command, X_OK) == -1)
 		{
-			write(STDERR_FILENO, argv[0], strlen(argv[0]));
+			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
 			_putchar(": 1: ");
-			write(STDERR_FILENO, tokens[0], strlen(tokens[0]));
+			write(STDERR_FILENO, tokens[0], _strlen(tokens[0]));
 			_putchar(": not found");
 			_putchar("\n");
 			*exit_stat = 127;
@@ -82,4 +83,4 @@ int check_env(int n, char **argv, char **tokens, int *exit_stat)
 	}
 
 	return (0);
-} */
+}
