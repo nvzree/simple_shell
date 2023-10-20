@@ -6,7 +6,7 @@
  * @argc: argument count
  * Return: exit status
  */
-
+int main(int argc __attribute__((unused)), char **argv);
 int main(int argc __attribute__((unused)), char **argv)
 {
 	char *cmd_sh = NULL;
@@ -36,7 +36,7 @@ int main(int argc __attribute__((unused)), char **argv)
 
 		response = check_env(n, argv, tokens, &exit_stat);
 		if (response == 1)
-			break; 
+			break;
 		else if (response == 2)
 			continue;
 

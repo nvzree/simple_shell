@@ -3,7 +3,7 @@
 /**
  * prompt_handler - prints prompt to stdout and reads command input
  * @len: length of the input
- * @line: user command stored
+ * @cmd_sh: user command stored
  * Return: int
  */
 

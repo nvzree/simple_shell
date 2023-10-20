@@ -10,7 +10,7 @@
 
 int _putchar(char *c)
 {
-	return write(STDOUT_FILENO, c, _strlen(c));
+	return (write(STDOUT_FILENO, c, _strlen(c)));
 }
 
 /**

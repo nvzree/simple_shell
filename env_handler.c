@@ -8,6 +8,7 @@
  * @exit_stat: exit status
  * Return: void
  */
+int check_env(int n, char **argv, char **tokens, int *exit_stat);
 int check_env(int n, char **argv, char **tokens, int *exit_stat)
 {
 	char **env = environ;
@@ -62,7 +63,7 @@ int check_env(int n, char **argv, char **tokens, int *exit_stat)
  * @exit_stat: exit status
  * Return: int
  */
-
+int _exe(char **argv, char **tokens, char **command, int *exit_stat);
 int _exe(char **argv, char **tokens, char **command, int *exit_stat)
 {
 	char *path = _getenv("PATH");

@@ -69,7 +69,7 @@ char *_getenv(char *var)
 	int var_len = _strlen(var);
 	int i = 0;
 
-	while(environ[i] != NULL)
+	while (environ[i] != NULL)
 	{
 		if (_strncmp(var, environ[i], var_len) == 0 && environ[i][var_len] == '=')
 		{
@@ -83,10 +83,10 @@ char *_getenv(char *var)
 
 /**
  * _unsetenv - remove environment variable
- * @name: variable name to remove
+ * @var: variable name to remove
  * Return: 0 on success
  */
-
+int _unsetenv(char *var);
 int _unsetenv(char *var)
 {
 	char **env = environ;
