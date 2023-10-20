@@ -19,6 +19,7 @@ int _strlen(char *s);
 int _atoi(char *str);
 int _path(char *path);
 char *which_path(char *filename, char *path);
+int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int _strncmp(char *str1, char *str2, int n);

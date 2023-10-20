@@ -17,13 +17,13 @@ int check_env(int n, char **argv, char **tokens, int *exit_stat)
 	{
 		return (2);
 	}
-	if (strcmp(tokens[0], "exit") == 0)
+	if (_strcmp(tokens[0], "exit") == 0)
 	{
 		if (tokens[1] != NULL)
 		{
-			if (atoi(tokens[1]))
+			if (_atoi(tokens[1]))
 			{
-				if (atoi(tokens[1]) >= 0)
+				if (_atoi(tokens[1]) >= 0)
 					*exit_stat = _atoi(tokens[1]);
 				else
 					print_error(tokens, argv, exit_stat);
@@ -36,7 +36,7 @@ int check_env(int n, char **argv, char **tokens, int *exit_stat)
 		return (1);
 	}
 
-	if (strcmp(tokens[0], "env") == 0)
+	if (_strcmp(tokens[0], "env") == 0)
 	{
 		env = environ;
 		while (*env != NULL)
@@ -47,7 +47,7 @@ int check_env(int n, char **argv, char **tokens, int *exit_stat)
 		}
 		return (2);
 	}
-	if (strcmp(tokens[0], "unsetenv") == 0)
+	if (_strcmp(tokens[0], "unsetenv") == 0)
 	{
 		_unsetenv(tokens[1]);
 		return (2);
@@ -74,9 +74,9 @@ int _exe(char **argv, char **tokens, char **command, int *exit_stat)
 		if (access(*command, X_OK) == -1)
 		{
 			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
-			_putchar(": 1: ");
+			write(STDERR_FILENO, ": 1: ", 5);
 			write(STDERR_FILENO, tokens[0], _strlen(tokens[0]));
-			_putchar(": not found");
+			write(STDERR_FILENO, ": not found ", 12);
 			_putchar("\n");
 			*exit_stat = 127;
 			return (2);

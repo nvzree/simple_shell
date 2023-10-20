@@ -1,6 +1,26 @@
 #include "shell.h"
 
 /**
+ * _strcmp - compares two string
+ * @s1: pointer to string
+ * @s2: pointer to string
+ * Return: int that tells num spaces in between
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0;
+
+	while (s1[i] != '\0' && s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}
+
+/**
  * _path - Checks for path
  * @path: 'path'
  * Return: 1 if true, 0 if false
@@ -25,7 +45,7 @@ char *which_path(char *filename, char *path)
 {
 	char *path_copy;
 	char *tokens[1024];
-	char *pathname;
+	char *path_name;
 	int i = 0;
 
 	if (path == NULL)
@@ -39,18 +59,18 @@ char *which_path(char *filename, char *path)
 
 	for (i = 0; tokens[i] != NULL; i++)
 	{
-		pathname = malloc(strlen(tokens[i]) + strlen(filename) + 2);
-		_strcpy(pathname, tokens[i]);
-		_strcat(pathname, "/");
-		_strcat(pathname, filename);
+		path_name = malloc(strlen(tokens[i]) + strlen(filename) + 2);
+		_strcpy(path_name, tokens[i]);
+		_strcat(path_name, "/");
+		_strcat(path_name, filename);
 
-		if (_path(pathname))
+		if (_path(path_name))
 		{
 			free(path_copy);
-			return (pathname);
+			return (path_name);
 		}
 
-		free(pathname);
+		free(path_name);
 		tokens[i] = strtok(NULL, ":");
 	}
 

@@ -25,7 +25,7 @@ int execute_cmd(char *command, char *tokens[], int *exit_stat)
 		execve(command, tokens, environ);
 		*exit_stat = 2;
 		perror("Error: execve");
-		exit(2);
+		exit(*exit_stat);
 	}
 	else
 	{
